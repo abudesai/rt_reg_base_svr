@@ -1,0 +1,2 @@
+model,dataset_name,run_hpt,num_hpt_trials,rmse,r2,elapsed_time_in_minutes
+SupportVectorRegressor,white_wine,True,30,0.7917,0.2711,0.32
