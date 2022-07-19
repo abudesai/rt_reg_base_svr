@@ -17,15 +17,13 @@ MODEL_NAME = "SupportVectorRegressor"
 
 class SupportVectorRegressor(): 
     
-    def __init__(self, C=1.0, kernel="rbf", degree=1, tol=1e-3, gamma="auto") -> None:
-        
+    def __init__(self, C=1.0, kernel="rbf", degree=1, tol=1e-3, gamma="auto") -> None:        
         self.C= np.float(C)
         self.kernel= kernel
         self.degree= int(degree)
         self.tol= np.float(tol)
         self.gamma= gamma
         self.verbose = False
-
         self.model = self.build_model()
         
         
