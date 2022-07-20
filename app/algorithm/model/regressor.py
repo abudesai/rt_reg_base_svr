@@ -15,7 +15,7 @@ model_fname = "model.save"
 MODEL_NAME = "SupportVectorRegressor"
 
 
-class SupportVectorRegressor(): 
+class Regressor(): 
     
     def __init__(self, C=1.0, kernel="rbf", degree=1, tol=1e-3, gamma="auto") -> None:        
         self.C= np.float(C)
@@ -77,7 +77,7 @@ def save_model(model, model_path):
 
 def load_model(model_path): 
     try: 
-        model = SupportVectorRegressor.load(model_path)        
+        model = Regressor.load(model_path)        
     except: 
         raise Exception(f'''Error loading the trained {MODEL_NAME} model. 
             Do you have the right trained model in path: {model_path}?''')

@@ -3,7 +3,7 @@ import os
 
 import algorithm.utils as utils
 import algorithm.preprocessing.pipeline as pipeline
-import algorithm.model.svr as svr
+import algorithm.model.regressor as regressor
 
 
 # get model configuration parameters 
@@ -26,7 +26,7 @@ class ModelServer:
     
     def _get_model(self): 
         try: 
-            self.model = svr.load_model(self.model_path)
+            self.model = regressor.load_model(self.model_path)
             return self.model
         except: 
             print(f'No model found to load from {self.model_path}. Did you train the model first?')
@@ -54,7 +54,7 @@ class ModelServer:
         id_field_name = data_schema["inputDatasets"]["regressionBaseMainInput"]["idField"]     
         # return te prediction df with the id and prediction fields
         preds_df = data[[id_field_name]].copy()
-        preds_df['prediction'] = preds   
+        preds_df['prediction'] = np.round(preds,4)
         
         return preds_df
         

@@ -1,7 +1,2 @@
 model,dataset_name,run_hpt,num_hpt_trials,rmse,r2,elapsed_time_in_minutes
-SupportVectorRegressor,abalone,False,,2.1859,0.3329,0.01
-SupportVectorRegressor,auto_prices,False,,3584.9659,0.8072,0.0
-SupportVectorRegressor,computer_activity,False,,6.1428,0.8232,0.01
 SupportVectorRegressor,heart_disease,False,,0.9794,0.2691,0.0
-SupportVectorRegressor,white_wine,False,,0.793,0.2687,0.01
-SupportVectorRegressor,ailerons,False,,0.0002,0.7901,0.04
