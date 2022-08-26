@@ -1,7 +1,1 @@
-{
-  "kernel": "rbf",
-  "degree": 3,
-  "C": 1.0,
-  "tol": 1.0,
-  "gamma": "auto"
-}
+{}

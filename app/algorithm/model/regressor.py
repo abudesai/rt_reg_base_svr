@@ -12,20 +12,20 @@ from sklearn.metrics import mean_squared_error
 
 
 model_fname = "model.save"
-MODEL_NAME = "SupportVectorRegressor"
+
+MODEL_NAME = "reg_base_svr_sklearn"
 
 
 class Regressor(): 
     
-    def __init__(self, C=1.0, kernel="rbf", degree=1, tol=1e-3, gamma="auto") -> None:        
-        self.C= np.float(C)
+    def __init__(self, kernel="rbf", degree=2, C=2.0, tol=.001, gamma="auto", **kwargs) -> None:        
         self.kernel= kernel
         self.degree= int(degree)
+        self.C= np.float(C)
         self.tol= np.float(tol)
         self.gamma= gamma
         self.verbose = False
-        self.model = self.build_model()
-        
+        self.model = self.build_model()        
         
         
     def build_model(self): 
@@ -35,8 +35,6 @@ class Regressor():
     
     
     def fit(self, train_X, train_y):        
-                 
-    
         self.model.fit(
                 X = train_X,
                 y = train_y

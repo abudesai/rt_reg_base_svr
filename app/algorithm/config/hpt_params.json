@@ -33,7 +33,7 @@
   {
     "name": "tol",
     "short_desc": "Tolerance for stopping criterion",
-    "default": 1,
+    "default": 1.0,
     "type": "real",
     "search_type": "uniform",
     "range_low": 1e-3,

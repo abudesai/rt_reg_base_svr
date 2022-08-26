@@ -11,8 +11,9 @@ model_cfg = utils.get_model_config()
 
 
 class ModelServer:
-    def __init__(self, model_path): 
+    def __init__(self, model_path, data_schema): 
         self.model_path = model_path
+        self.data_schema = data_schema
         
     
     def _get_preprocessor(self): 
@@ -34,7 +35,7 @@ class ModelServer:
     
         
     
-    def predict(self, data, data_schema):  
+    def predict(self, data):  
         
         preprocessor = self._get_preprocessor()
         model = self._get_model()
@@ -51,7 +52,7 @@ class ModelServer:
         # inverse transform the predictions to original scale
         preds = pipeline.get_inverse_transform_on_preds(preprocessor, model_cfg, preds)        
         # get the names for the id and prediction fields
-        id_field_name = data_schema["inputDatasets"]["regressionBaseMainInput"]["idField"]     
+        id_field_name = self.data_schema["inputDatasets"]["regressionBaseMainInput"]["idField"]     
         # return te prediction df with the id and prediction fields
         preds_df = data[[id_field_name]].copy()
         preds_df['prediction'] = np.round(preds,4)
